@@ -1,0 +1,98 @@
+PocketBridge {{VERSION}} – Windows 11 (x64)
+==========================================
+
+SCHNELLSTART
+
+1. Das ZIP vollständig entpacken, z. B. in einen Ordner unter „Dokumente“.
+2. PocketBridge.exe im entpackten Ordner starten. Alle Dateien und Unterordner
+   aus dem ZIP müssen zusammenbleiben. Nicht direkt aus dem ZIP starten.
+3. iPhone und PC mit demselben vertrauenswürdigen Netzwerk verbinden.
+   Der PC darf auch per Ethernet verbunden sein.
+4. QR-Code im App-Fenster mit der iPhone-Kamera scannen und in Safari öffnen.
+5. Fotos auswählen oder Text einfügen und „An PC senden“ wählen.
+6. Am PC den Eingang auswählen und „Kopieren“ oder „Speichern“ verwenden.
+
+Eine separate .NET-Installation oder ein SDK ist nicht erforderlich.
+Die Anwendung ist für Windows 11 auf Intel-/AMD-x64-PCs zusammengestellt.
+Es gibt keinen Autostart und keinen dauerhaft installierten Hintergrunddienst.
+Mit dem Schließen des Fensters endet auch der Empfang.
+
+FOTOS EINFÜGEN
+
+Auf dem iPhone ein Foto kopieren. Auf der PocketBridge-Webseite im Reiter
+„Fotos“ im Feld „Bild aus der Zwischenablage“ lange drücken und „Einfügen“
+wählen. Vorschau prüfen und anschließend senden. Ein kopierter Bildlink
+allein enthält keine Bilddaten. Am PC funktioniert auch Strg+V.
+
+NETZWERK UND FIREWALL
+
+TCP-Port 47831 muss vom iPhone erreichbar sein. Wenn Windows nach Netzwerkzugriff
+fragt, diesen nur im vertrauenswürdigen privaten Netzwerk erlauben.
+Gast-WLANs oder Netzwerke mit Geräteisolation verhindern häufig die Verbindung.
+Bei mehreren Netzwerkadaptern in der App die erreichbare IPv4-Adresse wählen.
+Die Anwendung ändert weder das Windows-Netzwerkprofil noch Firewall-Regeln.
+
+Die lokale HTTP-Verbindung ist unverschlüsselt. PocketBridge ausschließlich
+im vertrauenswürdigen LAN verwenden. Keine Router-Portweiterleitung einrichten.
+Der QR-Link enthält den persönlichen Zugangsschlüssel und sollte nicht
+öffentlich weitergegeben werden. „Zugangsschlüssel erneuern“ sperrt alte Links.
+
+DATEN UND SPEICHER
+
+Der Eingang ist persistent. Standardort:
+  %LOCALAPPDATA%\PocketBridge\inbox
+
+Kopieren oder Speichern entfernt einen Eintrag nicht aus dem Eingang.
+Einträge können über das Papierkorb-Symbol gelöscht werden. Beim Start und
+Beenden fragt die App bei vorhandenem Inhalt nach „Löschen“ oder „Behalten“.
+„Behalten“ erhält die Daten; beim Beenden kann auch abgebrochen werden.
+
+Unter „Einstellungen“ lassen sich der Speicherort und der maximal bereitgestellte
+Empfangsspeicher wählen. Standard: 512 MB. Fotos und Texte teilen sich diesen
+Rahmen. Eine Übertragung, die den verbleibenden Platz überschreitet, wird
+abgewiesen. Es gibt keine separaten Grenzen für Fotoanzahl oder Fotogröße.
+Der freie Laufwerksspeicher wird angezeigt und beim Speichern geprüft.
+Beim Wechsel des Speicherorts werden vorhandene Einträge übernommen.
+
+Einstellungen und Kopplung verbleiben unter %LOCALAPPDATA%\PocketBridge.
+Dieses Downloadpaket enthält keine Eingänge, Einstellungen oder Schlüssel
+des Entwicklers. Die Kopplung wird beim ersten Start für den Benutzer angelegt.
+
+SPRACHANSAGE
+
+Die Empfangsansage ist standardmäßig aktiviert und unter „Einstellungen“
+abschaltbar. „Ansage testen“ spielt eine Vorschau. Die Sprache folgt Windows:
+Deutsch oder Englisch, mit Englisch als Rückfall bei anderen Anzeigesprachen
+oder fehlender deutscher Stimme. Es wird eine vorhandene Windows-Stimme benutzt.
+Die Sprachausgabe benötigt weder Internet noch ein zusätzliches Sprachmodell.
+
+BILDFORMATE
+
+Empfang: JPEG, PNG, HEIC/HEIF, WebP, GIF, BMP und TIFF.
+HEIC/WebP benötigen für Vorschau und Bild-Zwischenablage ggf. Windows-Codecs.
+Ohne passenden Decoder kann das Original weiterhin gespeichert werden.
+GIF/TIFF werden als erstes Bild angezeigt/kopiert; Speichern erhält das Original.
+Die Vorschau dekodiert höchstens 80 Megapixel. Empfangene Originaldateien bleiben
+unverändert erhalten; Text wird als UTF-8 gespeichert.
+
+UPDATES UND ENTFERNEN
+
+Für ein Update die App schließen und die neue Version in einen neuen Ordner
+entpacken. Die neue PocketBridge.exe starten. Einstellungen und Eingang bleiben
+am bisherigen Benutzer-Speicherort erhalten. Alte Programmordner können danach
+entfernt werden.
+
+Zum Entfernen die App schließen und den Programmordner löschen. Persönliche
+Daten im Eingang und im Benutzerprofil werden dadurch nicht automatisch gelöscht.
+
+PAKETHINWEISE
+
+Diese Ausgabe ist nicht digital signiert. Beim Download kann Windows daher
+eine Warnung über einen unbekannten Herausgeber anzeigen. Das Paket nur aus
+einer vertrauenswürdigen Quelle beziehen. Die mitgelieferte SHA-256-Prüfsumme
+kann mit Get-FileHash in PowerShell geprüft werden.
+
+VERSION.txt nennt Version und enthaltene Laufzeiten.
+VERSIONSHINWEISE.md beschreibt diese Ausgabe.
+THIRD-PARTY-NOTICES.txt und der Ordner Lizenzen enthalten Komponentenhinweise.
+SHA256SUMS.txt enthält die Prüfsummen der Dateien innerhalb dieses Pakets.

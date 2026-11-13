@@ -1,0 +1,21 @@
+<Window xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Class="PocketBridge.Desktop.SettingsWindow"
+        Title="Speicher &amp; Sprache · PocketBridge" Width="650" Height="760" MinWidth="530" MinHeight="580" WindowStartupLocation="CenterOwner">
+  <Grid Margin="27" RowDefinitions="*,Auto">
+    <ScrollViewer><StackPanel Spacing="14">
+      <TextBlock Text="Speicher &amp; Sprache" FontSize="26" FontWeight="SemiBold"/>
+      <TextBlock Text="ZWISCHENSPEICHER" FontSize="10" Classes="muted" Margin="0,12,0,0"/>
+      <TextBox x:Name="LocationBox" IsReadOnly="True" TextChanged="Storage_Changed"/>
+      <StackPanel Orientation="Horizontal" Spacing="8"><Button Content="Ordner wählen …" Click="Browse_Click"/><Button Content="Standardordner" Click="DefaultFolder_Click"/></StackPanel>
+      <TextBlock Text="Im gewählten Ordner wird »PocketBridge-Eingang« angelegt. Vorhandene Einträge werden beim Speichern übernommen." TextWrapping="Wrap" Classes="muted" FontSize="12"/>
+      <Border Background="#EEF2FA" Padding="15" CornerRadius="10"><StackPanel Spacing="7"><TextBlock x:Name="FreeSpaceLabel" FontSize="17" FontWeight="SemiBold" TextWrapping="Wrap"/><TextBlock x:Name="CapacityHint" TextWrapping="Wrap" Classes="muted" FontSize="12"/></StackPanel></Border>
+      <Grid ColumnDefinitions="*,145"><TextBlock Text="Maximaler Empfangsspeicher (MB)" VerticalAlignment="Center"/><TextBox x:Name="InboxMb" Grid.Column="1" TextChanged="Storage_Changed"/></Grid>
+      <TextBlock Text="Fotos und Texte teilen sich diesen Rahmen. Entscheidend ist der noch freie Platz. Das Limit reserviert keinen Laufwerksspeicher und löscht keine Einträge. Standard: 512 MB." TextWrapping="Wrap" Classes="muted" FontSize="12"/>
+      <TextBlock Text="SPRACHANSAGE" FontSize="10" Classes="muted" Margin="0,12,0,0"/>
+      <CheckBox x:Name="SpeechEnabled" Content="Empfang per Sprache bestätigen"/>
+      <TextBlock x:Name="SpeechInfo" TextWrapping="Wrap" Classes="muted" FontSize="12"/>
+      <Button Content="Ansage testen" Click="TestSpeech_Click" HorizontalAlignment="Left"/>
+      <TextBlock x:Name="ValidationError" TextWrapping="Wrap" Foreground="#A13E36"/>
+    </StackPanel></ScrollViewer>
+    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="9" Margin="0,18,0,0"><Button Content="Abbrechen" Click="Cancel_Click"/><Button Content="Speichern" Classes="primary" Click="Save_Click"/></StackPanel>
+  </Grid>
+</Window>

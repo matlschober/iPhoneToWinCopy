@@ -1,0 +1,45 @@
+<Window xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Class="PocketBridge.Desktop.MainWindow"
+        Width="1240" Height="810" MinWidth="1020" MinHeight="680" Title="PocketBridge · Linux Mint Preview" WindowStartupLocation="CenterScreen">
+  <Grid RowDefinitions="84,*,42">
+    <Border Background="White" BorderBrush="#E5E9F2" BorderThickness="0,0,0,1" Padding="28,0">
+      <Grid ColumnDefinitions="*,Auto" VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal" Spacing="13"><Border Background="#315EFB" CornerRadius="11" Width="42" Height="42"><TextBlock Text="⇄" Foreground="White" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center"/></Border><StackPanel><TextBlock Text="PocketBridge" FontSize="24" FontWeight="SemiBold"/><TextBlock Text="IPHONE → LINUX MINT" FontSize="10" Classes="muted"/></StackPanel></StackPanel>
+        <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="12" VerticalAlignment="Center"><TextBlock x:Name="StatusLabel" Text="Wird gestartet …" VerticalAlignment="Center" Classes="muted"/><Button x:Name="PauseButton" Content="Pausieren" Click="Pause_Click" IsEnabled="False"/><Button Content="Einstellungen" Click="Settings_Click"/></StackPanel>
+      </Grid>
+    </Border>
+    <Grid Grid.Row="1" ColumnDefinitions="270,300,*">
+      <Border Background="#F0F3FA" Padding="24,27"><ScrollViewer HorizontalScrollBarVisibility="Disabled"><StackPanel Spacing="13">
+        <TextBlock Text="VERBINDUNG" FontSize="10" Classes="muted"/><TextBlock Text="iPhone verbinden" FontSize="21" FontWeight="SemiBold"/>
+        <TextBlock Text="QR-Code mit der Kamera scannen. Beide Geräte im selben Netzwerk." TextWrapping="Wrap" Classes="muted" FontSize="12"/>
+        <Border Background="White" Padding="10" CornerRadius="12" Margin="0,7"><Image x:Name="QrImage" Width="188" Height="188" Stretch="Uniform"/></Border>
+        <ComboBox x:Name="AddressBox" SelectionChanged="Address_Changed" HorizontalAlignment="Stretch"/>
+        <Button Content="Verbindungslink kopieren" Click="CopyLink_Click" HorizontalAlignment="Stretch"/>
+        <TextBlock Text="Der Link enthält deinen Zugangsschlüssel." TextWrapping="Wrap" Classes="muted" FontSize="11"/>
+        <Separator Margin="0,8"/>
+        <TextBlock Text="Direkt aus »Teilen« senden" FontWeight="SemiBold" FontSize="13"/>
+        <Button Content="iPhone-Einrichtung" Click="Guide_Click" HorizontalAlignment="Stretch"/>
+        <Button Content="Zugangsschlüssel erneuern" Click="Rotate_Click" HorizontalAlignment="Stretch"/>
+        <TextBlock Text="Mint-Vorschau · Betriebssystemintegration wird auf dem Laptop geprüft." TextWrapping="Wrap" Classes="muted" FontSize="11" Margin="0,15,0,0"/>
+      </StackPanel></ScrollViewer></Border>
+      <Border Grid.Column="1" Background="White" BorderBrush="#E5E9F2" BorderThickness="0,0,1,0" Padding="18,27">
+        <Grid RowDefinitions="Auto,Auto,*">
+          <Grid ColumnDefinitions="*,Auto" Margin="3,0,3,18"><TextBlock Text="Eingang" FontSize="23" FontWeight="SemiBold"/><TextBlock x:Name="CountLabel" Grid.Column="1" VerticalAlignment="Center" Classes="muted"/></Grid>
+          <TextBox x:Name="SearchBox" Grid.Row="1" Watermark="Eingang durchsuchen" TextChanged="Search_Changed" Margin="0,0,0,15"/>
+          <ListBox x:Name="InboxList" Grid.Row="2" SelectionChanged="Inbox_Changed" Background="Transparent" BorderThickness="0">
+            <ListBox.ItemTemplate><DataTemplate><StackPanel Margin="3,10" Spacing="5"><TextBlock Text="{Binding Name}" FontWeight="SemiBold" FontSize="13" TextTrimming="CharacterEllipsis"/><TextBlock Text="{Binding Summary}" Classes="muted" FontSize="11"/><TextBlock Text="{Binding TimeLabel}" Classes="muted" FontSize="10"/></StackPanel></DataTemplate></ListBox.ItemTemplate>
+          </ListBox>
+        </Grid>
+      </Border>
+      <Grid Grid.Column="2" Margin="28" RowDefinitions="Auto,*,Auto">
+        <StackPanel Spacing="8"><TextBlock Text="VORSCHAU" FontSize="10" Classes="muted"/><TextBlock x:Name="ItemTitle" Text="Bereit für deinen Transfer." FontSize="24" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"/><TextBlock x:Name="ItemMeta" Text="Fotos und Text vom iPhone direkt hierher." Classes="muted" FontSize="12"/></StackPanel>
+        <Border Grid.Row="1" Background="White" CornerRadius="12" Margin="0,23"><Grid>
+          <Image x:Name="PhotoPreview" Stretch="Uniform" Margin="18"/>
+          <TextBox x:Name="TextPreview" IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True" BorderThickness="0" Background="Transparent" Padding="22" FontSize="17" IsVisible="False"/>
+          <TextBlock x:Name="PreviewMessage" Text="Ein Foto. Ein Link. Ein bisschen Text." TextWrapping="Wrap" Classes="muted" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25"/>
+        </Grid></Border>
+        <Grid Grid.Row="2" ColumnDefinitions="*,Auto"><StackPanel Orientation="Horizontal" Spacing="10"><Button x:Name="CopyButton" Content="Kopieren" Classes="primary" Click="Copy_Click" IsEnabled="False"/><Button x:Name="SaveButton" Content="Speichern …" Click="Save_Click" IsEnabled="False"/></StackPanel><Button Grid.Column="1" Content="Löschen" Click="Delete_Click"/></Grid>
+      </Grid>
+    </Grid>
+    <Border Grid.Row="2" Background="White" BorderBrush="#E5E9F2" BorderThickness="0,1,0,0" Padding="24,0"><TextBlock x:Name="Feedback" Text="Lokal im Netzwerk · Keine Cloud" VerticalAlignment="Center" FontSize="11" Classes="muted" TextTrimming="CharacterEllipsis"/></Border>
+  </Grid>
+</Window>

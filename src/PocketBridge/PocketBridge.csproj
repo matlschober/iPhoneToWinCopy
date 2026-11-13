@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>PocketBridge</AssemblyName>
+    <Version>0.4.0</Version>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Assets/pocketbridge.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../PocketBridge.Core/PocketBridge.Core.csproj" />
+    <PackageReference Include="QRCoder" Version="1.8.1" />
+    <Resource Include="Assets/pocketbridge.ico" />
+  </ItemGroup>
+</Project>
